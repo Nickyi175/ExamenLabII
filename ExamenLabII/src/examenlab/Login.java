@@ -145,20 +145,20 @@ public class Login extends javax.swing.JFrame {
     private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
         TipoRedSocial2 claseRed=new TipoRedSocial2();
         claseRed.setVisible(true);
-        this.dispose();
+        this.setVisible(false);
         
     }//GEN-LAST:event_salirMouseClicked
 
     private void agregarUsuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarUsuario1ActionPerformed
         CrearUser crearUser=new CrearUser(type);
         crearUser.setVisible(true);
-        this.dispose();
+         this.setVisible(false);
     }//GEN-LAST:event_agregarUsuario1ActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         TipoRedSocial2 claseRed=new TipoRedSocial2();
         claseRed.setVisible(true);
-        this.dispose();
+         this.setVisible(false);
     }//GEN-LAST:event_salirActionPerformed
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
@@ -167,7 +167,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Logged in");
             SubMenu subMenu=new SubMenu(type);
             subMenu.setVisible(true);
-            this.dispose();
+             this.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(null, "Usuario no existente","Cuidado",JOptionPane.ERROR_MESSAGE);
         }

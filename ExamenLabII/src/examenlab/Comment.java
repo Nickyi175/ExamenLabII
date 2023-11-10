@@ -1,6 +1,4 @@
-
 package examenlab;
-//Nicole
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -20,7 +18,7 @@ public final class Comment {
     public void print(){
          SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String Fecha = date.format(fecha.getTime());
-        System.out.println(autor+"-"+Fecha+"\nComentario: "+comentario);
+        System.out.println("Autor: "+autor+"- Fecha: "+Fecha+"\nComentario: "+comentario);
     }
 
     public int getPostId() {
