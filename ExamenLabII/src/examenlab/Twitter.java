@@ -4,10 +4,7 @@
  */
 package examenlab;
 
-/**
- *
- * @author josuc
- */
+
 public abstract class Twitter extends SocialClass {
     
     public Twitter(String username) {
@@ -15,6 +12,15 @@ public abstract class Twitter extends SocialClass {
     }
     
     public void timeline() {
-        
+        System.out.println("Timeline de @" + username + ":");
+
+        for (int i = 0; i < posts.size(); i++) {
+            System.out.println("Tweet " + (i + 1) + ": " + posts.get(i));
+        }
+    }
+    
+    @Override
+    public String getUsername(){
+        return super.getUsername();
     }
 }

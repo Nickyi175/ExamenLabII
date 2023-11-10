@@ -10,7 +10,7 @@ public class Login extends javax.swing.JFrame {
     
     public Login(TipoRedSocial2 type) {
         initComponents();
-        uber=new UberSocial(type);
+        uber=new UberSocial();
         this.type = type;
         setLocationRelativeTo(null);
     }
@@ -150,9 +150,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_salirMouseClicked
 
     private void agregarUsuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarUsuario1ActionPerformed
-        CrearUser crearUser=new CrearUser(type);
-        crearUser.setVisible(true);
-         this.setVisible(false);
+//        CrearUser crearUser=new CrearUser();
+//        crearUser.setVisible(true);
+//         this.setVisible(false);
     }//GEN-LAST:event_agregarUsuario1ActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
@@ -163,13 +163,11 @@ public class Login extends javax.swing.JFrame {
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
         String usuario=Username.getText();
-        SocialClass user=uber.buscar(usuario);
-        System.out.println("user"+user);
-        if(user!=null){
+        if((uber.buscar(usuario)!=null)){
             JOptionPane.showMessageDialog(null, "Logged in");
-            SubMenu subMenu=new SubMenu(type);
-            subMenu.setVisible(true);
-             this.setVisible(false);
+//            SubMenu subMenu=new SubMenu(type);
+//            subMenu.setVisible(true);
+//             this.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(null, "Usuario no existente","Cuidado",JOptionPane.ERROR_MESSAGE);
         }
@@ -202,6 +200,8 @@ public class Login extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

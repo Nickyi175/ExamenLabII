@@ -4,15 +4,15 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public final class Comment {
-    private int postId;
-    private String autor,comentario;
-    private Calendar fecha;
+    private final int postId;
+    private final String autor,comentario;
+    private final Calendar fecha;
     
     public Comment(int postId,String autor,String comentario){
         this.postId=postId;
         this.autor=autor;
         this.comentario=comentario;
-        fecha=Calendar.getInstance();
+        this.fecha=Calendar.getInstance();
     }
     
     public void print(){
@@ -25,33 +25,33 @@ public final class Comment {
         return postId;
     }
 
-    public void setPostId(int postId) {
-        this.postId = postId;
-    }
+//    public void setPostId(int postId) {
+//        this.postId = postId;
+//    }
 
     public String getAutor() {
         return autor;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
+//    public void setAutor(String autor) {
+//        this.autor = autor;
+//    }
 
     public String getComentario() {
         return comentario;
     }
 
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
+//    public void setComentario(String comentario) {
+//        this.comentario = comentario;
+//    }
 
     public Calendar getFecha() {
         return fecha;
     }
 
-    public void setFecha(Calendar fecha) {
-        this.fecha = fecha;
-    }
+//    public void setFecha(Calendar fecha) {
+//        this.fecha = fecha;
+//    }
     
     
 }

@@ -6,22 +6,22 @@ package examenlab;
 
 import examenlab.Login;
 import examenlab.TipoRedSocial2;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author tomea
- */
+
 public class SubMenuT extends javax.swing.JFrame {
 
     /**
      * Creates new form SubMenuT
      */
+     
+    UberSocial social= new UberSocial();
     
-    TipoRedSocial2 type;
-    public SubMenuT(TipoRedSocial2 type) {
+   
+    public SubMenuT( ) {
         initComponents();
          setLocationRelativeTo(null);
-         this.type = type;
+         
     }
 
     /**
@@ -36,16 +36,25 @@ public class SubMenuT extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         publicar = new javax.swing.JButton();
         agregarAmigo = new javax.swing.JButton();
-        comentar = new javax.swing.JButton();
         perfil = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         publicarpanel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        agregaramigo = new javax.swing.JPanel();
-        comentarpanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        txtpost = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        agregaramigo = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        txtfriend = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        btnaggamigo = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         logOut = new javax.swing.JButton();
+        logOut1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,15 +78,6 @@ public class SubMenuT extends javax.swing.JFrame {
             }
         });
 
-        comentar.setBackground(new java.awt.Color(0, 102, 153));
-        comentar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        comentar.setText("Comentar");
-        comentar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comentarActionPerformed(evt);
-            }
-        });
-
         perfil.setBackground(new java.awt.Color(0, 102, 153));
         perfil.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         perfil.setText("Perfil");
@@ -94,12 +94,24 @@ public class SubMenuT extends javax.swing.JFrame {
 
         publicarpanel.setBackground(new java.awt.Color(204, 204, 204));
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 204));
+        jButton1.setBackground(new java.awt.Color(0, 102, 153));
         jButton1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 102, 153));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Publicar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jTextField1.setText("jTextField1");
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Ingrese el post: ");
+
+        txtpost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtpostActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout publicarpanelLayout = new javax.swing.GroupLayout(publicarpanel);
         publicarpanel.setLayout(publicarpanelLayout);
@@ -108,68 +120,149 @@ public class SubMenuT extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, publicarpanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addGap(58, 58, 58))
             .addGroup(publicarpanelLayout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addGap(83, 83, 83)
+                .addComponent(jLabel2)
+                .addGap(74, 74, 74)
+                .addComponent(txtpost, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
+                .addGap(122, 122, 122))
         );
         publicarpanelLayout.setVerticalGroup(
             publicarpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, publicarpanelLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addGroup(publicarpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 327, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(14, 14, 14))
+                .addGap(47, 47, 47))
         );
 
         jTabbedPane1.addTab("Publicar", publicarpanel);
 
-        agregaramigo.setBackground(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout agregaramigoLayout = new javax.swing.GroupLayout(agregaramigo);
-        agregaramigo.setLayout(agregaramigoLayout);
-        agregaramigoLayout.setHorizontalGroup(
-            agregaramigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
-        );
-        agregaramigoLayout.setVerticalGroup(
-            agregaramigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Agregar Amigos", agregaramigo);
-
-        comentarpanel.setBackground(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout comentarpanelLayout = new javax.swing.GroupLayout(comentarpanel);
-        comentarpanel.setLayout(comentarpanelLayout);
-        comentarpanelLayout.setHorizontalGroup(
-            comentarpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
-        );
-        comentarpanelLayout.setVerticalGroup(
-            comentarpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Comentar", comentarpanel);
-
         jPanel5.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Ver Perfil");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(212, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(130, 130, 130))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(335, 335, 335))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addGap(64, 64, 64)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(190, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Perfil", jPanel5);
+
+        agregaramigo.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Ingrese el nombre del amigo a agregar:");
+
+        txtfriend.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfriendActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Agregar Amigos");
+
+        btnaggamigo.setBackground(new java.awt.Color(0, 102, 153));
+        btnaggamigo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        btnaggamigo.setForeground(new java.awt.Color(255, 255, 255));
+        btnaggamigo.setText("Agregar amigo");
+        btnaggamigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaggamigoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout agregaramigoLayout = new javax.swing.GroupLayout(agregaramigo);
+        agregaramigo.setLayout(agregaramigoLayout);
+        agregaramigoLayout.setHorizontalGroup(
+            agregaramigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(agregaramigoLayout.createSequentialGroup()
+                .addGroup(agregaramigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(agregaramigoLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel3)
+                        .addGap(42, 42, 42)
+                        .addComponent(txtfriend, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(agregaramigoLayout.createSequentialGroup()
+                        .addGap(347, 347, 347)
+                        .addComponent(jLabel5)))
+                .addContainerGap(309, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, agregaramigoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnaggamigo, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+        agregaramigoLayout.setVerticalGroup(
+            agregaramigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(agregaramigoLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addGroup(agregaramigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtfriend, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 344, Short.MAX_VALUE)
+                .addComponent(btnaggamigo)
+                .addGap(17, 17, 17))
+        );
+
+        jTabbedPane1.addTab("Agregar Amigos", agregaramigo);
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Timeline");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(308, 308, 308)
+                .addComponent(jLabel6)
+                .addContainerGap(437, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addContainerGap(434, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Timeline", jPanel2);
 
         logOut.setBackground(new java.awt.Color(0, 102, 153));
         logOut.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -185,37 +278,56 @@ public class SubMenuT extends javax.swing.JFrame {
             }
         });
 
+        logOut1.setBackground(new java.awt.Color(0, 102, 153));
+        logOut1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        logOut1.setText("Timeline");
+        logOut1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logOut1MouseClicked(evt);
+            }
+        });
+        logOut1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOut1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(publicar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(agregarAmigo)
-                    .addComponent(comentar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(publicar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(perfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(logOut, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                        .addComponent(logOut1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(agregarAmigo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(publicar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(agregarAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(comentar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(publicar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(agregarAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(logOut1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(274, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,13 +345,15 @@ public class SubMenuT extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
-        // TODO add your handling code here:
+        TipoRedSocial2 red=new TipoRedSocial2();
+        red.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_logOutActionPerformed
 
     private void logOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutMouseClicked
-       Login login=new Login(type);
-       login.setVisible(true);
-       this.dispose();
+//       Login login=new Login(type);
+//       login.setVisible(true);
+//       this.dispose();
     }//GEN-LAST:event_logOutMouseClicked
 
     private void publicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_publicarActionPerformed
@@ -247,16 +361,54 @@ public class SubMenuT extends javax.swing.JFrame {
     }//GEN-LAST:event_publicarActionPerformed
 
     private void agregarAmigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarAmigoActionPerformed
-        jTabbedPane1.setSelectedIndex(1);
+        jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_agregarAmigoActionPerformed
 
-    private void comentarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comentarActionPerformed
-       jTabbedPane1.setSelectedIndex(2);
-    }//GEN-LAST:event_comentarActionPerformed
-
     private void perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfilActionPerformed
-    jTabbedPane1.setSelectedIndex(3); 
+    
+    jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_perfilActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String msg= txtpost.getText();
+        String username= "";
+        social.agregarPost(username,msg);
+        
+       JOptionPane.showMessageDialog(null, "Post agregado correctamente. ");
+        
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtfriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfriendActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfriendActionPerformed
+
+    private void btnaggamigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaggamigoActionPerformed
+      String amigo1= txtfriend.getText();
+      String userlogeado = "";
+      boolean resultado = social.agregarAmigo(amigo1,userlogeado);
+
+                if (resultado) {
+                    JOptionPane.showMessageDialog(null, "Amigo agregado correctamente: ");
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se pudo agregar el amigo. Verifica el nombre del usuario.");
+                }      
+      
+      
+    
+    }//GEN-LAST:event_btnaggamigoActionPerformed
+
+    private void txtpostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpostActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtpostActionPerformed
+
+    private void logOut1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOut1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logOut1MouseClicked
+
+    private void logOut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOut1ActionPerformed
+        jTabbedPane1.setSelectedIndex(3); 
+    }//GEN-LAST:event_logOut1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,7 +443,7 @@ public class SubMenuT extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SubMenuT(null).setVisible(true);
+                new SubMenuT().setVisible(true);
             }
         });
     }
@@ -299,16 +451,25 @@ public class SubMenuT extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarAmigo;
     private javax.swing.JPanel agregaramigo;
-    private javax.swing.JButton comentar;
-    private javax.swing.JPanel comentarpanel;
+    private javax.swing.JButton btnaggamigo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton logOut;
+    private javax.swing.JButton logOut1;
     private javax.swing.JButton perfil;
     private javax.swing.JButton publicar;
     private javax.swing.JPanel publicarpanel;
+    private javax.swing.JTextField txtfriend;
+    private javax.swing.JTextField txtpost;
     // End of variables declaration//GEN-END:variables
 }

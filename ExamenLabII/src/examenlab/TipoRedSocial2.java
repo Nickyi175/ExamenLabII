@@ -4,8 +4,14 @@
  */
 package examenlab;
 
+import javax.swing.JOptionPane;
+
 public class TipoRedSocial2 extends javax.swing.JFrame {
-    String tipoRed;
+
+//    String tipoRed;
+    UberSocial uber = new UberSocial();
+    String log;
+
     public TipoRedSocial2() {
         initComponents();
         setLocationRelativeTo(null);
@@ -26,6 +32,7 @@ public class TipoRedSocial2 extends javax.swing.JFrame {
         twitter = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         salir = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +81,13 @@ public class TipoRedSocial2 extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Crear Cuenta");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -91,11 +105,13 @@ public class TipoRedSocial2 extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(166, 166, 166)
-                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(jButton1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addComponent(jLabel1)))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {facebook, twitter});
@@ -112,7 +128,9 @@ public class TipoRedSocial2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(salir)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(salir)
+                    .addComponent(jButton1))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -133,10 +151,23 @@ public class TipoRedSocial2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void facebookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facebookActionPerformed
-        tipoRed="FACEBOOK";
-        Login login=new Login(this);
-        login.setVisible(true);
-        this.dispose();
+//        tipoRed="FACEBOOK";
+//        Login login=new Login(this);
+//        login.setVisible(true);
+//        this.dispose();
+        log = JOptionPane.showInputDialog(null, "Ingrese su nombre");
+
+        if ((uber.buscar(log) != null)) {
+            JOptionPane.showMessageDialog(null, "Ingresó correctamente");
+//            SubMenu subMenu=new SubMenu(type);
+//            subMenu.setVisible(true);
+//             this.setVisible(false);
+            SubMenu f = new SubMenu();
+            f.setVisible(true);
+            this.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario no existente", "Cuidado", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_facebookActionPerformed
 
     private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
@@ -149,11 +180,48 @@ public class TipoRedSocial2 extends javax.swing.JFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void twitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twitterActionPerformed
-        tipoRed="TWITTER";
-        Login login=new Login(this);
-        login.setVisible(true);
-        this.dispose();
+//        tipoRed="TWITTER";
+//        Login login=new Login(this);
+//        login.setVisible(true);
+//        this.dispose();
+        log = JOptionPane.showInputDialog(null, "Ingrese su nombre");
+        if ((uber.buscar(log) != null)) {
+            JOptionPane.showMessageDialog(null, "Logged in");
+//            SubMenu subMenu=new SubMenu(type);
+//            subMenu.setVisible(true);
+//             this.setVisible(false);
+            SubMenuT T = new SubMenuT();
+            T.setVisible(true);
+            this.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario no existente", "Cuidado", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_twitterActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+//        CrearUser crear=new CrearUser(objsc);
+//        crear.setVisible(true);
+//        this.setVisible(false);
+        String numb = JOptionPane.showInputDialog(null, "Ingrese 1 para Facebook o 2 para Twitter");
+
+        if (numb.equals("1")) {
+
+            String ingresado = JOptionPane.showInputDialog(null, "Ingrese el nombre del username");
+
+            uber.agregarCuenta(ingresado, "FACEBOOK");
+
+        } else if (numb.equals("2")) {
+
+            String useringre = JOptionPane.showInputDialog(null, "Ingrese el nombre del username");
+            uber.agregarCuenta(useringre, "TWITTER");
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Opcion no valida");
+
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,6 +249,7 @@ public class TipoRedSocial2 extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TipoRedSocial2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -192,6 +261,7 @@ public class TipoRedSocial2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton facebook;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

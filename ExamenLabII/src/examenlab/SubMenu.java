@@ -4,21 +4,20 @@
  */
 package examenlab;
 
-/**
- *
- * @author tomea
- */
+import javax.swing.JOptionPane;
+
 public class SubMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form SubMenu
      */
+    UberSocial uber;
     
-    TipoRedSocial2 type;
-    public SubMenu(TipoRedSocial2 type) {
+    public SubMenu() {
         initComponents();
          setLocationRelativeTo(null);
-         this.type = type;
+         uber=new UberSocial();
+         //this.type = type;
     }
 
     /**
@@ -37,7 +36,11 @@ public class SubMenu extends javax.swing.JFrame {
         perfil = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        areapublicar = new javax.swing.JTextArea();
+        panelamigo = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        areaamigo = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         logOut = new javax.swing.JButton();
@@ -84,38 +87,46 @@ public class SubMenu extends javax.swing.JFrame {
 
         jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(102, 102, 102)));
-        jTabbedPane1.setForeground(new java.awt.Color(0, 0, 0));
         jTabbedPane1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+
+        areapublicar.setColumns(20);
+        areapublicar.setRows(5);
+        jScrollPane2.setViewportView(areapublicar);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 343, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Publicar", jPanel2);
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        panelamigo.setBackground(new java.awt.Color(204, 204, 204));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+        areaamigo.setEditable(false);
+        areaamigo.setColumns(20);
+        areaamigo.setRows(5);
+        jScrollPane1.setViewportView(areaamigo);
+
+        javax.swing.GroupLayout panelamigoLayout = new javax.swing.GroupLayout(panelamigo);
+        panelamigo.setLayout(panelamigoLayout);
+        panelamigoLayout.setHorizontalGroup(
+            panelamigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 343, Short.MAX_VALUE)
+        panelamigoLayout.setVerticalGroup(
+            panelamigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Agregar Amigos", jPanel3);
+        jTabbedPane1.addTab("Agregar Amigos", panelamigo);
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -217,21 +228,50 @@ public class SubMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
-        // TODO add your handling code here:
+//    Login login=new Login(type);
+//       login.setVisible(true);
+//       this.dispose();
+TipoRedSocial2 red=new TipoRedSocial2();
+        red.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_logOutActionPerformed
 
     private void logOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutMouseClicked
-       Login login=new Login(type);
-       login.setVisible(true);
-       this.dispose();
+       
     }//GEN-LAST:event_logOutMouseClicked
 
     private void publicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_publicarActionPerformed
         jTabbedPane1.setSelectedIndex(0);
+         String uselog=JOptionPane.showInputDialog(null, "Usuario");
+         String post=JOptionPane.showInputDialog(null, " POST ");
+        SocialClass social=new SocialClass(uselog) {
+            @Override
+            public void timeline() {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        };
+        social.addPost(post);
+        for(int i=0;i<social.getPosts().size();i++){
+            areapublicar.append("POST "+i+"\n"+post+"\n");
+        }
     }//GEN-LAST:event_publicarActionPerformed
 
     private void agregarAmigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarAmigoActionPerformed
         jTabbedPane1.setSelectedIndex(1);
+        String uselog=JOptionPane.showInputDialog(null, "Usuario");
+        String amigo=JOptionPane.showInputDialog(null, "Nombre de amigo a gregar");
+        SocialClass social=new SocialClass(uselog) {
+            @Override
+            public void timeline() {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        };
+        social.addFriend(amigo);
+
+        for (String friend : social.getFriends()) {
+        areaamigo.append(friend + "\n");
+}
+        
     }//GEN-LAST:event_agregarAmigoActionPerformed
 
     private void comentarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comentarActionPerformed
@@ -272,21 +312,25 @@ public class SubMenu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SubMenu(null).setVisible(true);
+                new SubMenu().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarAmigo;
+    private javax.swing.JTextArea areaamigo;
+    private javax.swing.JTextArea areapublicar;
     private javax.swing.JButton comentar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton logOut;
+    private javax.swing.JPanel panelamigo;
     private javax.swing.JButton perfil;
     private javax.swing.JButton publicar;
     // End of variables declaration//GEN-END:variables

@@ -7,14 +7,10 @@ package examenlab;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Ana Reyes
- */
 public abstract  class SocialClass {
 
-    protected List<String> friends;
-    protected List<String> posts;
+    protected static List<String> friends;
+    protected static List<String> posts;
     protected String username;
 
     public SocialClass(String username) {
@@ -23,14 +19,13 @@ public abstract  class SocialClass {
         this.username = username;
     }
 
-    public boolean addFriends(String user) {
+    public boolean addFriend(String user) {
         if (!friends.contains(user) && user != null && !user.equals(this.username)) {
             friends.add(user);
             return true;
-        } else {
-            return false;
+        } 
+        return false;
 
-        }
     }
 
     public void addPost(String msg) {
@@ -45,12 +40,13 @@ public abstract  class SocialClass {
         System.out.print("");
         timeline();
         System.out.println("Friends: ");
+        
         int ami = 0;
         for (String friend : friends) {
-            System.out.println(friend + " ");
+            System.out.println(friend + "\t ");
             ami++;
 
-            if (ami >= 10) {
+            if (ami == 10) {
                 System.out.println();
                 ami =0;
             }
@@ -58,4 +54,19 @@ public abstract  class SocialClass {
         }
         System.out.println();
     }
+    
+    
+    
+    public String getUsername(){
+        return username;
+    }
+
+    public List<String> getFriends() {
+        return friends;
+    }
+
+    public List<String> getPosts() {
+        return posts;
+    }
+    
 }

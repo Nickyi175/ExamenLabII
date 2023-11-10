@@ -4,15 +4,16 @@
  */
 package examenlab;
 
+
 import javax.swing.JOptionPane;
 
 public class CrearUser extends javax.swing.JFrame {
-    UberSocial uber;
-    TipoRedSocial2 type;
-    public CrearUser(TipoRedSocial2 type) {
+    UberSocial uber=new UberSocial();;
+//    TipoRedSocial2 type;
+    public CrearUser(UberSocial social) {
         initComponents();
-        uber=new UberSocial(type);
-        this.type=type;
+       this.uber=social;
+//        this.type=type;
         setLocationRelativeTo(null);
     }
 
@@ -30,6 +31,8 @@ public class CrearUser extends javax.swing.JFrame {
         Username = new javax.swing.JTextField();
         aceptar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        tipo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,23 +58,33 @@ public class CrearUser extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("USERNAME:");
 
+        jLabel3.setText("jLabel3");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 258, Short.MAX_VALUE)
+                .addComponent(aceptar)
+                .addGap(257, 257, 257))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(259, 259, 259)
-                            .addComponent(aceptar))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(114, 114, 114)
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(140, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(114, 114, 114)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(126, 126, 126)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(52, 52, 52)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Username, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                            .addComponent(tipo))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,9 +95,13 @@ public class CrearUser extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(aceptar)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,18 +119,27 @@ public class CrearUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-        String user=Username.getText();
-        String t = "FACEBOOK";
-        if((uber.buscar(user)==null)){
-            uber.agregarCuenta(user, t);
-            JOptionPane.showMessageDialog(null, "Registrado");
-            SubMenu subMenu=new SubMenu(type);
-            subMenu.setVisible(true);
-            this.dispose();
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "Ya existe este usuario");
-        }
+         String  user=Username.getText();
+        String type= tipo.getText();
+        
+       uber.agregarCuenta(user, type);
+        
+//        Main menu = new Main();
+//        menu.setVisible(true);
+//        this.dispose();
+
+//        String user=Username.getText();
+//        String t = "FACEBOOK";
+//        if((uber.buscar(user)==null)){
+//            uber.agregarCuenta(user, t);
+//            JOptionPane.showMessageDialog(null, "Registrado");
+//            SubMenu subMenu=new SubMenu(type);
+//            subMenu.setVisible(true);
+//            this.dispose();
+//            
+//        }else{
+//            JOptionPane.showMessageDialog(null, "Ya existe este usuario");
+//        }
         
     }//GEN-LAST:event_aceptarActionPerformed
 
@@ -143,6 +169,7 @@ public class CrearUser extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(CrearUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -157,6 +184,8 @@ public class CrearUser extends javax.swing.JFrame {
     private javax.swing.JButton aceptar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField tipo;
     // End of variables declaration//GEN-END:variables
 }
