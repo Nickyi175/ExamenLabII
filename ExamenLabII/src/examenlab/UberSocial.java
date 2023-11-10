@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package examenlab;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author josuc
- */
 public class UberSocial {
     ArrayList <SocialClass> Cuentas;
     TipoRedSocial2 type;
@@ -21,22 +14,25 @@ public class UberSocial {
     }
     
     public SocialClass buscar(String username) {
-         for (SocialClass cuentas : Cuentas) {
-            if (cuentas.username.equals(username)) {
-                return cuentas;
+         for (int i=0;i<Cuentas.size();i++) {
+             SocialClass cuenta=Cuentas.get(i);
+      
+            if (cuenta.username.equals(username)) {
+                return cuenta;
             }
+             
         }
         return null;
     }
     public void agregarCuenta(String username, String tipo) {
-        SocialClass account = null;
+        SocialClass account = buscar(username);
         if (type.tipoRed.equals("FACEBOOK")) {
             account = new Facebook(username) {};
         } else if (type.tipoRed.equals("TWITTER")) {
             account = new Twitter(username) {};
         }
         
-        if (account != null) {
+        if (account.username != null) {
             Cuentas.add(account);
         }
     }

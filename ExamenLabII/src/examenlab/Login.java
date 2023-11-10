@@ -163,7 +163,9 @@ public class Login extends javax.swing.JFrame {
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
         String usuario=Username.getText();
-        if((uber.buscar(usuario)!=null)){
+        SocialClass user=uber.buscar(usuario);
+        System.out.println("user"+user);
+        if(user!=null){
             JOptionPane.showMessageDialog(null, "Logged in");
             SubMenu subMenu=new SubMenu(type);
             subMenu.setVisible(true);
