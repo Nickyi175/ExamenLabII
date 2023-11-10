@@ -186,7 +186,7 @@ public class TipoRedSocial2 extends javax.swing.JFrame {
 //        this.dispose();
         log = JOptionPane.showInputDialog(null, "Ingrese su nombre");
         if ((uber.buscar(log) != null)) {
-            JOptionPane.showMessageDialog(null, "Logged in");
+            JOptionPane.showMessageDialog(null, "Ingresó correctamente");
 //            SubMenu subMenu=new SubMenu(type);
 //            subMenu.setVisible(true);
 //             this.setVisible(false);
